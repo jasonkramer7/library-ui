@@ -1,0 +1,28 @@
+.parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.mat-card {
+  height: 50%;
+  width: 20%;
+  margin: 10px;
+  background: lightsteelblue !important;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+h1 {
+  margin: auto;
+  width: 20%;
+}

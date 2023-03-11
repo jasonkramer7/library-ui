@@ -1,0 +1,52 @@
+<h1>Add a New Book to Your Collection</h1>
+<br>
+<div>
+  <mat-card class="new-book">
+    <mat-card-header>
+      <mat-card-title>Enter Book Information</mat-card-title>
+<!--      <mat-card-subtitle>Enter Book Information</mat-card-subtitle>-->
+    </mat-card-header>
+    <div class="parent">
+      <div>
+        <mat-form-field appearance="standard">
+          <mat-label>Title</mat-label>
+          <input matInput [(ngModel)]="newBook.name">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="standard">
+          <mat-label>Author</mat-label>
+          <input matInput [(ngModel)]="newBook.authors[0].name">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="standard">
+          <mat-label>Genre</mat-label>
+          <mat-select [(ngModel)]="newBook.categories[0].name">
+            <mat-option value="historical">Historical</mat-option>
+            <mat-option value="educational">Educational</mat-option>
+            <mat-option value="romance">Romance</mat-option>
+            <mat-option value="sci-fi">Sci-Fi</mat-option>
+            <mat-option value="anime">Anime</mat-option>
+            <mat-option value="horror">Horror</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <div>
+      <mat-form-field appearance="standard" class="description">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="newBook.description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button class="save" mat-raised-button appearance="standard" float-right (click)="save()">Save</button>
+    </div>
+  </mat-card>
+</div>
+
+

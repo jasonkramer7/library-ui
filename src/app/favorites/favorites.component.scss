@@ -1,0 +1,18 @@
+.parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.mat-card {
+  height: 50%;
+  width: 20%;
+  margin: 10px;
+  background: lightsteelblue !important;
+}
+
+h1 {
+  margin: auto;
+  width: 20%;
+}

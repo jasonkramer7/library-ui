@@ -1,18 +1,44 @@
-.parent {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 
+table {
+  width: 100%;
 }
 
-.mat-card {
-  height: 50%;
-  width: 20%;
-  margin: 10px;
-  background: lightsteelblue !important;
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  color: #000000;
 }
 
-h1 {
-  margin: auto;
-  width: 20%;
+.filter {
+  width: 100%;
+}
+
+.page {
+  width: 100%;
+}
+
+.container {
+  padding: 40px;
+}
+
+.mat-button:hover {
+  background-color: aqua;
+  color: black;
+}
+
+
+::ng-deep .mat-form-field-label {
+  color: #000000 !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  background-color: #000000 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ background-color: #000000 !important;
+}
+
+input::placeholder {
+  color: #000000;
 }

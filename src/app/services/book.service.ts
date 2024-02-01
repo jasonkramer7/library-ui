@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from "./book.interface";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-// import { Observable, throwError } from 'rxjs';
-// import { catchError, retry } from 'rxjs/operators';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, map, pipe, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +40,8 @@ export class BookService {
     return this.database.update(key, book);
   }
 
+  getLikedBook() {
+    return this.db.list('/books', ref => ref.orderByChild('liked').equalTo(true)).valueChanges();
+  }
 
 }

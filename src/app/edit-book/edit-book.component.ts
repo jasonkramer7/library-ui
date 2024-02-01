@@ -57,8 +57,8 @@ export class EditBookComponent implements OnInit {
       "category": '',
       "loaned": false,
       "person": '',
-      "stars": 1
-
+      "stars": 1,
+      "liked": false
     }
   }
 

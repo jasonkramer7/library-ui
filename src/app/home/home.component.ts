@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  displayedColumns: string[] = ['name', 'author', 'description', 'category', 'loaned', 'person', 'stars', 'edit', 'delete'];
+  displayedColumns: string[] = ['liked','name', 'author', 'description', 'category', 'loaned', 'person', 'stars', 'edit', 'delete'];
   dataSource = new MatTableDataSource<Book>;
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private bookService: BookService, private _snackBar: MatSnackBar) { }
@@ -68,4 +68,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  isLiked(book: Book) {
+    book.liked=!book.liked;
+    this.bookService.updateBook(book, book.key);
+  }
 }

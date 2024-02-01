@@ -9,6 +9,16 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
+      <!-- Liked Column -->
+      <ng-container matColumnDef="liked">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Favorite </th>
+        <td mat-cell *matCellDef="let book"> 
+          <button mat-button (click)="isLiked(book)">
+            <mat-icon *ngIf='book.liked' aria-hidden="false" aria-label="Example home icon" fontIcon="favorite"></mat-icon>
+            <mat-icon *ngIf='!book.liked' aria-hidden="false" aria-label="Example home icon" fontIcon="favorite_border"></mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">

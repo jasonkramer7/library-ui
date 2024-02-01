@@ -1,3 +1,4 @@
+<p>edit-book works!</p>
 <h1>Add a New Book to Your Collection</h1>
 <br>
 <div>
@@ -10,20 +11,20 @@
       <div>
         <mat-form-field appearance="standard">
           <mat-label>Title</mat-label>
-          <input matInput [(ngModel)]="newBook.name">
+          <input matInput [(ngModel)]="book.name">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="standard">
           <mat-label>Author</mat-label>
-          <input matInput [(ngModel)]="newBook.author">
+          <input matInput [(ngModel)]="book.author">
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field appearance="standard">
           <mat-label>Genre</mat-label>
-          <mat-select [(ngModel)]="newBook.category">
+          <mat-select [(ngModel)]="book.category">
             <mat-option value="historical">Historical</mat-option>
             <mat-option value="classic">Classic</mat-option>
             <mat-option value="educational">Educational</mat-option>
@@ -40,21 +41,23 @@
     <div>
       <mat-form-field appearance="standard" class="description">
         <mat-label>Description</mat-label>
-        <textarea matInput [(ngModel)]="newBook.description"></textarea>
+        <textarea matInput [(ngModel)]="book.description"></textarea>
       </mat-form-field>
     </div>
 
     <mat-label>Loaned Out </mat-label>
-    <mat-checkbox type="checkbox" ngDefaultControl [(ngModel)]="newBook.loaned"></mat-checkbox>
+    <mat-checkbox type="checkbox" ngDefaultControl [(ngModel)]="book.loaned"></mat-checkbox>
 
-    <div *ngIf="newBook.loaned">
+    <div *ngIf="book.loaned">
       <mat-form-field appearance="standard">
         <mat-label>Loaned To</mat-label>
-        <input matInput [(ngModel)]="newBook.person" />
+        <input matInput [(ngModel)]="book.person" />
       </mat-form-field>
     </div>
-    <mat-card-actions align="end">
-      <button mat-raised-button mat-raised-button (click)="save()">Save</button>
+
+    <mat-card-actions align="start">
+      <button mat-raised-button appearance="standard" [routerLink]="['/home']" float-right>Cancel</button>
+      <button class="save" mat-raised-button appearance="standard" float-right (click)="update()">Update</button>
     </mat-card-actions>
   </mat-card>
 

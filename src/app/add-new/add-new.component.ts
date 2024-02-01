@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../services/book.service';
 import { Book } from '../services/book.interface';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-add-new',
@@ -9,10 +15,12 @@ import { Book } from '../services/book.interface';
 })
 export class AddNewComponent implements OnInit {
 
-  newBook:Book;
+  newBook: Book;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private _snackBar: MatSnackBar) { }
+  database: AngularFireList<any>;
 
   ngOnInit(): void {
     this.resetBook();
@@ -20,29 +28,26 @@ export class AddNewComponent implements OnInit {
 
   save() {
     console.log(this.newBook);
-    this.bookService.saveBook(this.newBook).subscribe(ret => {
+    this.bookService.saveBook(this.newBook).then((data) => {
+      this._snackBar.open('Saved', 'OK', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
       this.resetBook();
-    },
-    err => {
-      console.log(err);
     });
+
   }
 
   resetBook() {
     this.newBook = {
+      "key": '',
       "name": '',
       "description": '',
-      "isbn": '',
-      "authors": [
-        {
-          "name": ''
-        }
-      ],
-      "categories": [
-        {
-          "name": ''
-        }
-        ]
+      "author": '',
+      "category": '',
+      "loaned": false,
+      "person": ''
+
     }
   }
 

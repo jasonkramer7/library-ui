@@ -1,46 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; MaterialExampleModule
 import { FavoritesComponent } from './favorites/favorites.component';
 import { AddNewComponent } from './add-new/add-new.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from "@angular/material/card";
 import { HomeComponent } from './home/home.component';
-import {MatDividerModule} from "@angular/material/divider";
-import { BookService} from "./services/book.service";
+import { BookService } from "./services/book.service";
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from 'src/environments/environment';
+import { EditBookComponent } from './edit-book/edit-book.component';
+import { MaterialExampleModule } from './material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     FavoritesComponent,
     AddNewComponent,
-    HomeComponent
+    HomeComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatCardModule,
-    MatInputModule,
-    MatDividerModule,
+    MaterialExampleModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [
     BookService

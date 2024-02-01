@@ -1,15 +1,9 @@
 export interface Book {
+  "key": string,
   "name": string,
   "description": string,
-  "isbn": string,
-  "authors": [
-    {
-      "name": string
-    }
-  ],
-  "categories": [
-    {
-      "name": string
-    }
-    ]
+  "author": string,
+  "category": string,
+  "loaned": boolean,
+  "person": string
 }

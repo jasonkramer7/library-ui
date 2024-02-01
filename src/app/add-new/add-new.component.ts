@@ -7,6 +7,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { BookService } from '../services/book.service';
+import { StarRatingColor } from '../star-rating/star-rating.component';
 
 @Component({
   selector: 'app-add-new',
@@ -14,7 +15,11 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./add-new.component.scss']
 })
 export class AddNewComponent implements OnInit {
-
+  rating:number = 1;
+  starCount:number = 5;
+  starColor:StarRatingColor = StarRatingColor.accent;
+  starColorP:StarRatingColor = StarRatingColor.primary;
+  starColorW:StarRatingColor = StarRatingColor.warn;
   newBook: Book;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -28,6 +33,7 @@ export class AddNewComponent implements OnInit {
 
   save() {
     console.log(this.newBook);
+    this.newBook.stars = this.rating;
     this.bookService.saveBook(this.newBook).then((data) => {
       this._snackBar.open('Saved', 'OK', {
         horizontalPosition: this.horizontalPosition,
@@ -38,6 +44,11 @@ export class AddNewComponent implements OnInit {
 
   }
 
+  onRatingChanged(rating){
+    console.log(rating);
+    this.rating = rating;
+  }
+
   resetBook() {
     this.newBook = {
       "key": '',
@@ -46,7 +57,8 @@ export class AddNewComponent implements OnInit {
       "author": '',
       "category": '',
       "loaned": false,
-      "person": ''
+      "person": '',
+      "stars": 1
 
     }
   }

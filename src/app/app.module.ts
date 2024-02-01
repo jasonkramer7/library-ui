@@ -14,6 +14,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { MaterialExampleModule } from './material.module';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MaterialExampleModule } from './material.module';
     FavoritesComponent,
     AddNewComponent,
     HomeComponent,
-    EditBookComponent
+    EditBookComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

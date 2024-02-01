@@ -5,5 +5,6 @@ export interface Book {
   "author": string,
   "category": string,
   "loaned": boolean,
-  "person": string
+  "person": string,
+  "stars": number
 }

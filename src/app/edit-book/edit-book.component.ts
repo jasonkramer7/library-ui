@@ -7,6 +7,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { StarRatingColor } from '../star-rating/star-rating.component';
 
 @Component({
   selector: 'app-edit-book',
@@ -14,7 +15,11 @@ import {
   styleUrls: ['./edit-book.component.scss']
 })
 export class EditBookComponent implements OnInit {
-
+  rating:number = 1;
+  starCount:number = 5;
+  starColor:StarRatingColor = StarRatingColor.accent;
+  starColorP:StarRatingColor = StarRatingColor.primary;
+  starColorW:StarRatingColor = StarRatingColor.warn;
   book: Book;
   key: string;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -28,10 +33,12 @@ export class EditBookComponent implements OnInit {
     console.log(this.key);
     this.bookService.getBook(this.key).subscribe((data: Book) => {
       this.book = data;
+      this.rating = this.book.stars;
     })
   }
 
   update() {
+    this.book.stars = this.rating;
     this.bookService.updateBook(this.book, this.key).then(() => {
       this._snackBar.open('Updated', 'OK', {
         horizontalPosition: this.horizontalPosition,
@@ -49,9 +56,15 @@ export class EditBookComponent implements OnInit {
       "author": '',
       "category": '',
       "loaned": false,
-      "person": ''
+      "person": '',
+      "stars": 1
 
     }
+  }
+
+  onRatingChanged(rating){
+    console.log(rating);
+    this.rating = rating;
   }
 
 }

@@ -43,10 +43,10 @@
         <textarea matInput [(ngModel)]="newBook.description"></textarea>
       </mat-form-field>
     </div>
+    <mat-star-rating [rating]="rating"  [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
 
     <mat-label>Loaned Out </mat-label>
     <mat-checkbox type="checkbox" ngDefaultControl [(ngModel)]="newBook.loaned"></mat-checkbox>
-
     <div *ngIf="newBook.loaned">
       <mat-form-field appearance="standard">
         <mat-label>Loaned To</mat-label>

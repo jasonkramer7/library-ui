@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../services/book.interface';
+import { Book } from '../services/book/book.interface';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { BookService } from '../services/book.service';
+import { BookService } from '../services/book/book.service';
 import { StarRatingColor } from '../star-rating/star-rating.component';
 
 @Component({
@@ -50,17 +50,7 @@ export class AddNewComponent implements OnInit {
   }
 
   resetBook() {
-    this.newBook = {
-      "key": '',
-      "name": '',
-      "description": '',
-      "author": '',
-      "category": '',
-      "loaned": false,
-      "person": '',
-      "stars": 1,
-      "liked": false
-    }
+    this.newBook = this.bookService.clearBook();
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BookService } from '../services/book.service';
-import { Book } from '../services/book.interface';
+import { BookService } from '../services/book/book.service';
+import { Book } from '../services/book/book.interface';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -49,17 +49,7 @@ export class EditBookComponent implements OnInit {
   }
 
   resetBook() {
-    this.book = {
-      "key": '',
-      "name": '',
-      "description": '',
-      "author": '',
-      "category": '',
-      "loaned": false,
-      "person": '',
-      "stars": 1,
-      "liked": false
-    }
+    this.book = this.bookService.clearBook();
   }
 
   onRatingChanged(rating){

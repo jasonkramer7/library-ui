@@ -1,0 +1,26 @@
+.parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  mat-form-field {
+    width: 300px !important;
+  }
+  
+  .description {
+    width: 100% !important;
+  }
+  
+  .login {
+    margin: 20px;
+  }
+  
+  .mat-card {
+    background: lightsteelblue !important;
+  }
+  
+  h1 {
+    margin-left: 35%;
+  }
+  

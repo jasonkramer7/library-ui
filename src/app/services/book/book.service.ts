@@ -44,4 +44,19 @@ export class BookService {
     return this.db.list('/books', ref => ref.orderByChild('liked').equalTo(true)).valueChanges();
   }
 
+  clearBook() {
+    const book ={
+      "key": '',
+      "name": '',
+      "description": '',
+      "author": '',
+      "category": '',
+      "loaned": false,
+      "person": '',
+      "stars": 1,
+      "liked": false
+    }
+    return book;
+  }
+
 }

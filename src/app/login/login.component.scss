@@ -17,10 +17,19 @@
   }
   
   .mat-card {
-    background: lightsteelblue !important;
+    background: #590909 !important;
   }
   
   h1 {
     margin-left: 35%;
   }
   
+  .mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+    color: #fff;
+    background-color: #222121;
+  }
+
+  .mat-card-actions-align-end .mat-button:last-child, .mat-card-actions-align-end .mat-raised-button:last-child, .mat-card-actions-align-end .mat-stroked-button:last-child {
+    margin-top: 20px;
+    margin-right: 10px;
+  }

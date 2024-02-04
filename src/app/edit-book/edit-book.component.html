@@ -1,5 +1,5 @@
-<p>edit-book works!</p>
-<h1>Add a New Book to Your Collection</h1>
+
+<h1 class="top">Add a New Book to Your Collection</h1>
 <br>
 <div>
   <mat-card class="new-book">
@@ -25,13 +25,13 @@
         <mat-form-field appearance="standard">
           <mat-label>Genre</mat-label>
           <mat-select [(ngModel)]="book.category">
-            <mat-option value="historical">Historical</mat-option>
-            <mat-option value="classic">Classic</mat-option>
-            <mat-option value="educational">Educational</mat-option>
-            <mat-option value="romance">Romance</mat-option>
-            <mat-option value="sci-fi">Sci-Fi</mat-option>
-            <mat-option value="anime">Anime</mat-option>
-            <mat-option value="horror">Horror</mat-option>
+            <mat-option class="dropdown" value="historical">Historical</mat-option>
+            <mat-option class="dropdown" value="classic">Classic</mat-option>
+            <mat-option class="dropdown" value="educational">Educational</mat-option>
+            <mat-option class="dropdown" value="romance">Romance</mat-option>
+            <mat-option class="dropdown" value="sci-fi">Sci-Fi</mat-option>
+            <mat-option class="dropdown" value="anime">Anime</mat-option>
+            <mat-option class="dropdown" value="horror">Horror</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

@@ -4,7 +4,6 @@ import { signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/auth';
 import { ActivatedRoute } from '@angular/router';
-import { getAuth } from "firebase/auth";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    const auth = getAuth();
+    const auth = firebase.getAuth();
     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
     localStorage.setItem('returnUrl', returnUrl);
     
